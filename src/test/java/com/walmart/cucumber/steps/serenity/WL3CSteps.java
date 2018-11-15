@@ -8,7 +8,7 @@ import net.thucydides.core.steps.ScenarioSteps;
 import com.walmart.cucumber.pages.*;
 
 public class WL3CSteps extends ScenarioSteps{
-    WLC_LoginPage loginPage;
+    WLC_LoginPage_ loginPage;
     WLC_ListPage  listPage;
     String validEmail = "vikram.playdom11@rocketmail.com" , validPassword = "6W654321" ;	
     

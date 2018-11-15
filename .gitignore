@@ -13,4 +13,4 @@ test-output/*
 FFDC/*
 **/bin/*
 **/.idea/**
-myProjectArtifactID.iml
+SerenityCucumberJunit.iml

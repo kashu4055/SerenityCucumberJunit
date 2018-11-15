@@ -11,9 +11,14 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
   
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <serenity.version>1.5.3</serenity.version>                       <!-- https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22serenity-core%22 -->
-        <serenity.maven.version>1.5.3</serenity.maven.version>  <!--  https://search.maven.org/#search%7Cga%7C1%7Cserenity%20maven -->
-        <serenity.cucumber.version>1.5.4</serenity.cucumber.version>
+        <!--<serenity.version>1.5.3</serenity.version>                       &lt;!&ndash; https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22serenity-core%22 &ndash;&gt;-->
+        <!--<serenity.maven.version>1.5.3</serenity.maven.version>  &lt;!&ndash;  https://search.maven.org/#search%7Cga%7C1%7Cserenity%20maven &ndash;&gt;-->
+        <!--<serenity.cucumber.version>1.5.4</serenity.cucumber.version>-->
+
+
+        <serenity.version>2.0.17</serenity.version>
+        <serenity.maven.version>2.0.17</serenity.maven.version>
+        <serenity.cucumber.version>1.9.20</serenity.cucumber.version>
 
 
     </properties>
@@ -95,9 +100,17 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>3.13.0</version>
+			<version>3.14.0</version>
 		</dependency>
-     </dependencies>
+
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-remote-driver &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.seleniumhq.selenium</groupId>-->
+            <!--<artifactId>selenium-remote-driver</artifactId>-->
+            <!--<version>3.14.0</version>-->
+        <!--</dependency>-->
+
+    </dependencies>
     
     <build>
         <plugins>
