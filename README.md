@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Please refer below to understand Serenity + Cucumber + BDD concepts
 
 http://thucydides.info/docs/articles/an-introduction-to-serenity-bdd-with-cucumber.html
@@ -28,4 +29,7 @@ mvn verify -Drun.parallel=true -Dwebdriver.remote.driver=CHROME -Dwebdriver.remo
 
 
 ---- maven-surefire-plugin ----
-TBD
+
+# SerenityCucumberJunit-
+Serenity + Cucumber + Junit + Appium + Spring Integration
+
