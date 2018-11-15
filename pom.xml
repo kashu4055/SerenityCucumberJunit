@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+     <modelVersion>4.0.0</modelVersion>
+    <groupId>com.walmart.move.nim</groupId>
+    <artifactId>SerenityCucumberJunit</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
   
-  <groupId>com.organization.vikram_wunderlist</groupId>
-  <artifactId>myProjectArtifactID</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  
-  <name>My Project Name</name>
-  <description>Vikram's project POC Serenity + Cucumber + Wunderlist</description>
+  <name>SerenityCucumberJunit</name>
+  <description>Integration of Serenity + Junit + Cucumber + Appium + Spring</description>
   
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <serenity.version>1.5.3</serenity.version>                       <!-- https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22serenity-core%22 -->
         <serenity.maven.version>1.5.3</serenity.maven.version>  <!--  https://search.maven.org/#search%7Cga%7C1%7Cserenity%20maven -->
         <serenity.cucumber.version>1.5.4</serenity.cucumber.version>
+
+
     </properties>
 
     <!-- Define the Bintray repos for convenience -->

@@ -1,13 +1,11 @@
-package com.vikramvi.cucumber.steps.serenity;
+package com.walmart.cucumber.steps.serenity;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
-import java.io.IOException;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
-import com.vikramvi.cucumber.pages.*;
+import com.walmart.cucumber.pages.*;
 
 public class WL3CSteps extends ScenarioSteps{
     WLC_LoginPage loginPage;

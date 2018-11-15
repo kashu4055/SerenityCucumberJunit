@@ -1,4 +1,4 @@
-package com.vikramvi.cucumber;
+package com.walmart.cucumber;
 
 import cucumber.api.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;

@@ -1,15 +1,16 @@
-package com.vikramvi.cucumber.steps;
+package com.walmart.cucumber.steps;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-import net.serenitybdd.core.Serenity;
+import io.restassured.response.Response;
 import net.thucydides.core.annotations.Steps;
 
+import static net.serenitybdd.rest.SerenityRest.when;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.vikramvi.cucumber.steps.serenity.WL3CSteps;
+import com.walmart.cucumber.steps.serenity.WL3CSteps;
 
 public class ListScenarioSteps {
 
@@ -46,5 +47,14 @@ public class ListScenarioSteps {
 	public void checkListPosition(){
 		assertThat(wlCucumberSteps.isListPresent()).isNotEqualTo(0);		
 	}
+
+	@Given("^I hit the IBD enpoint and download the delivery document$")
+	public void i_am_an_active_trader() {
+		Response response = when().get("http://lb-node.cluster6.cloud.s06000.us.wal-mart.com/us-32899/inbound-document-manager/document/deliveries/20905711")
+				.thenReturn();
+
+		System.out.println(response.asString());
+	}
+
 		
 }
