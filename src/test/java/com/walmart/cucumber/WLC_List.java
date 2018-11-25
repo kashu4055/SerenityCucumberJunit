@@ -3,7 +3,7 @@ package com.walmart.cucumber;
 
 import com.walmart.cucumber.steps.serenity.CustomSerenityRunner;
 import com.walmart.cucumber.steps.serenity.SpringConfiguration;
-import com.walmart.cucumber.steps.serenity.SpringDemoApplication;
+import com.walmart.cucumber.steps.SpringDemoApplication;
 import cucumber.api.CucumberOptions;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;

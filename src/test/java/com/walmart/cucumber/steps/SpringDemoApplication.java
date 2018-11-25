@@ -1,13 +1,22 @@
-package com.walmart.cucumber.steps.serenity;
+package com.walmart.cucumber.steps;
 
+import com.walmart.cucumber.steps.serenity.SpringConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
+import org.springframework.retry.annotation.EnableRetry;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 //@EnableJms
+
 @Import({SpringConfiguration.class})
 @SpringBootApplication
+@EnableRetry
+@ComponentScan({ "com.walmart.cucumber.steps.serenity"})
+@RestController
 public class SpringDemoApplication {
 
 //    @Bean
@@ -33,6 +42,13 @@ public class SpringDemoApplication {
 //        converter.setTypeIdPropertyName("_type");
 //        return converter;
 //    }
+
+    @RequestMapping("/")
+
+    public String home(){
+        return "This is what i was looking for";
+    }
+
 
 
     public static void main(String[] args) {
