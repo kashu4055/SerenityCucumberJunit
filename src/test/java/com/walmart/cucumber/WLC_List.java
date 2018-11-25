@@ -3,11 +3,13 @@ package com.walmart.cucumber;
 
 import com.walmart.cucumber.steps.serenity.CustomSerenityRunner;
 import com.walmart.cucumber.steps.serenity.SpringConfiguration;
+import com.walmart.cucumber.steps.serenity.SpringDemoApplication;
 import cucumber.api.CucumberOptions;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
 import java.lang.reflect.Method;
@@ -16,7 +18,7 @@ import java.lang.reflect.Method;
 
 @RunWith(CustomSerenityRunner.class)
 @CucumberOptions(features={"src/test/resources/features/List/create_new_list.feature"},  plugin = {"pretty", "html:target/cucumber-reports", "json:target/cucumber.json","rerun:rerun.txt"})
-//@SpringBootTest(classes = SpringDemoApplication.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@SpringBootTest(classes = SpringDemoApplication.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @ContextConfiguration(classes = SpringConfiguration.class)
 public class WLC_List {
 
