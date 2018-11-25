@@ -7,13 +7,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.Steps;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.retry.RetryCallback;
-import org.springframework.retry.RetryContext;
-import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.EnableRetry;
 import org.springframework.retry.annotation.Retryable;
-import org.springframework.retry.backoff.FixedBackOffPolicy;
-import org.springframework.retry.policy.SimpleRetryPolicy;
 import org.springframework.retry.support.RetryTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.web.AnnotationConfigWebContextLoader;
@@ -93,8 +88,9 @@ public class AppiumCucumberSteps {
 //	}
 
 
-	@Retryable(value = Throwable.class, maxAttempts = 5, backoff = @Backoff(delay = 10))
+
 	@Given("^Get input from user and verify if retry mechanism kicks in\\.$")
+	@Retryable(value = ArithmeticException.class, maxAttempts = 5)
 	public void getInfo() throws Throwable {
 
 
@@ -116,51 +112,51 @@ public class AppiumCucumberSteps {
 
 
 
-		        try {
-            System.out.println("How many time will this be printed?");
-            SimpleRetryPolicy retryPolicy = new SimpleRetryPolicy();
-            retryPolicy.setMaxAttempts(5);
-
-            FixedBackOffPolicy backOffPolicy = new FixedBackOffPolicy();
-            backOffPolicy.setBackOffPeriod(100); // 1.5 seconds
-
-            retryTemplate.setBackOffPolicy(backOffPolicy);
-            retryTemplate.setRetryPolicy(retryPolicy);
-
-
-            retryTemplate.execute(new RetryCallback<Boolean, Throwable>() {
-                @Override
-                public Boolean doWithRetry(RetryContext retryContext) throws Throwable {
-
-					System.out.println("**************** Hello World *****************");
-
-                    String rand = "";
-
-                    rand += "Hello" + 4 / 0;
-
-
-
-
-
-                                        return false;
-                }
-            });
-
-        } catch (Throwable ex) {
-            throw ex;
-        }
-
-
-
-//		try{
-//			System.out.println("**************** Hello World *****************");
+//		        try {
+//            System.out.println("How many time will this be printed?");
+//            SimpleRetryPolicy retryPolicy = new SimpleRetryPolicy();
+//            retryPolicy.setMaxAttempts(5);
 //
-//			String rand = "";
+//            FixedBackOffPolicy backOffPolicy = new FixedBackOffPolicy();
+//            backOffPolicy.setBackOffPeriod(100); // 1.5 seconds
 //
-//			rand += "Hello" + 4 / 0;
-//		}catch(Throwable t){
-//			throw t;
-//		}
+//            retryTemplate.setBackOffPolicy(backOffPolicy);
+//            retryTemplate.setRetryPolicy(retryPolicy);
+//
+//
+//            retryTemplate.execute(new RetryCallback<Boolean, Throwable>() {
+//                @Override
+//                public Boolean doWithRetry(RetryContext retryContext) throws Throwable {
+//
+//					System.out.println("**************** Hello World *****************");
+//
+//                    String rand = "";
+//
+//                    rand += "Hello" + 4 / 0;
+//
+//
+//
+//
+//
+//                                        return false;
+//                }
+//            });
+//
+//        } catch (Throwable ex) {
+//            throw ex;
+//        }
+
+
+
+		try{
+			System.out.println("**************** Hello World *****************");
+
+			String rand = "";
+
+			rand += "Hello" + 4 / 0;
+		}catch(Throwable t){
+			throw t;
+		}
 
 	}
 
