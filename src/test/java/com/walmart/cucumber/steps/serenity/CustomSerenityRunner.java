@@ -4,7 +4,6 @@ import cucumber.runtime.junit.FeatureRunner;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import org.junit.runners.model.InitializationError;
-import org.springframework.retry.annotation.EnableRetry;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.web.AnnotationConfigWebContextLoader;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -13,7 +12,6 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
-@EnableRetry
 @WebAppConfiguration
 @ContextConfiguration(loader = AnnotationConfigWebContextLoader.class,classes = SpringConfiguration.class)
 public class CustomSerenityRunner extends CucumberWithSerenity {
