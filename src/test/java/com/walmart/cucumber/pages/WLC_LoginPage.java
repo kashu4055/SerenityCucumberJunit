@@ -1,5 +1,6 @@
 package com.walmart.cucumber.pages;
 
+import net.serenitybdd.screenplay.Actor;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
 import org.openqa.selenium.WebElement;

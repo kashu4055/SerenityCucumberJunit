@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ~ ************************************************************************************************** 
+	~ The information in this document is proprietary to VeriSign and the VeriSign 
+	* ~ Registry Business. It may not be used, reproduced, or disclosed without 
+	the * ~ written approval of the General Manager of VeriSign Information Services. 
+	* ~ * ~ PRIVILEGED AND CONFIDENTIAL VERISIGN PROPRIETARY INFORMATION (REGISTRY 
+	SENSITIVE INFORMATION) * ~ Copyright (c) 2010 VeriSign, Inc. All rights reserved. 
+	* ~ ************************************************************************************************** -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<context:component-scan base-package="com.walmart" />
+
+	<bean id="abstractEnvironmentPropertyPlaceholderConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+		abstract="true">
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="systemPropertiesMode" value="2" />
+		<property name="localOverride" value="false" />
+	</bean>
+	<!--Add all properties to this configurer to ensure the default property 
+		paradigm -->
+	<bean id="environmentPropertyPlaceholderConfigurer" parent="abstractEnvironmentPropertyPlaceholderConfigurer" />
+
+
+	<bean id="dwChartsPlaceholderConfig"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list merge="true">
+				<value>classpath:database-${environment}.properties</value>
+			</list>
+		</property>
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+	</bean>
+
+
+</beans>
+

@@ -19,8 +19,8 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
         <serenity.version>2.0.17</serenity.version>
         <serenity.maven.version>2.0.17</serenity.maven.version>
         <serenity.cucumber.version>1.9.20</serenity.cucumber.version>
-
-
+		<spring.retry.version>1.1.2.RELEASE</spring.retry.version>
+            <spring.version>5.1.2.RELEASE</spring.version>
     </properties>
 
     <!-- Define the Bintray repos for convenience -->
@@ -39,79 +39,277 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
         </pluginRepository>
     </pluginRepositories>
 
-    <dependencies>
-        <dependency>
-            <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-core</artifactId>
-            <version>${serenity.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-junit</artifactId>
-            <version>${serenity.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-rest-assured</artifactId>
-            <version>${serenity.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-cucumber</artifactId>
-            <version>${serenity.cucumber.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.6.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-all</artifactId>
-            <version>1.8.6</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.googlecode.lambdaj</groupId>
-            <artifactId>lambdaj</artifactId>
-            <version>2.3.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>1.7.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-	        <groupId>commons-collections</groupId>
-	        <artifactId>commons-collections</artifactId>
-	        <version>3.2.2</version>
-        </dependency>
-         <dependency>
-			<groupId>io.appium</groupId>
-			<artifactId>java-client</artifactId>
-			<version>6.1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>3.14.0</version>
-		</dependency>
-
-        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-remote-driver &ndash;&gt;-->
+    <!--<dependencies>-->
         <!--<dependency>-->
-            <!--<groupId>org.seleniumhq.selenium</groupId>-->
-            <!--<artifactId>selenium-remote-driver</artifactId>-->
-            <!--<version>3.14.0</version>-->
+            <!--<groupId>net.serenity-bdd</groupId>-->
+            <!--<artifactId>serenity-core</artifactId>-->
+            <!--<version>${serenity.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>net.serenity-bdd</groupId>-->
+            <!--<artifactId>serenity-spring</artifactId>-->
+            <!--<version>${serenity.version}</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>net.serenity-bdd</groupId>-->
+            <!--<artifactId>serenity-junit</artifactId>-->
+            <!--<version>${serenity.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>net.serenity-bdd</groupId>-->
+            <!--<artifactId>serenity-rest-assured</artifactId>-->
+            <!--<version>${serenity.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>net.serenity-bdd</groupId>-->
+            <!--<artifactId>serenity-cucumber</artifactId>-->
+            <!--<version>${serenity.cucumber.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.slf4j</groupId>-->
+            <!--<artifactId>slf4j-simple</artifactId>-->
+            <!--<version>1.6.1</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.codehaus.groovy</groupId>-->
+            <!--<artifactId>groovy-all</artifactId>-->
+            <!--<version>1.8.6</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>junit</groupId>-->
+            <!--<artifactId>junit</artifactId>-->
+            <!--<version>4.12</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>com.googlecode.lambdaj</groupId>-->
+            <!--<artifactId>lambdaj</artifactId>-->
+            <!--<version>2.3.3</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.assertj</groupId>-->
+            <!--<artifactId>assertj-core</artifactId>-->
+            <!--<version>1.7.0</version>-->
+            <!--<scope>test</scope>-->
         <!--</dependency>-->
 
-    </dependencies>
-    
+
+        <!--<dependency>-->
+            <!--<groupId>org.springframework</groupId>-->
+            <!--<artifactId>spring-core</artifactId>-->
+            <!--<version>${spring.version}</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>cglib</groupId>-->
+            <!--<artifactId>cglib</artifactId>-->
+            <!--<version>3.0</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+	        <!--<groupId>commons-collections</groupId>-->
+	        <!--<artifactId>commons-collections</artifactId>-->
+	        <!--<version>3.2.2</version>-->
+        <!--</dependency>-->
+         <!--<dependency>-->
+			<!--<groupId>io.appium</groupId>-->
+			<!--<artifactId>java-client</artifactId>-->
+			<!--<version>6.1.0</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>org.seleniumhq.selenium</groupId>-->
+			<!--<artifactId>selenium-java</artifactId>-->
+			<!--<version>3.14.0</version>-->
+		<!--</dependency>-->
+
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.apache.maven.surefire/surefire-junit47 &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.apache.maven.surefire</groupId>-->
+            <!--<artifactId>surefire-junit47</artifactId>-->
+            <!--<version>2.18</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.retry</groupId>-->
+            <!--<artifactId>spring-retry</artifactId>-->
+            <!--<version>1.2.2.RELEASE</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-test</artifactId>-->
+            <!--<version>1.5.13.RELEASE</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-test</artifactId>-->
+            <!--<version>2.1.0.RELEASE</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.springframework</groupId>-->
+            <!--<artifactId>spring-aop</artifactId>-->
+            <!--<version>5.0.8.RELEASE</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.aspectj</groupId>-->
+            <!--<artifactId>aspectjweaver</artifactId>-->
+            <!--<version>1.9.1</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter</artifactId>-->
+            <!--<version>2.1.0.RELEASE</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework</groupId>-->
+            <!--<artifactId>spring-test</artifactId>-->
+            <!--<version>${spring.version}</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework</groupId>-->
+            <!--<artifactId>spring-web</artifactId>-->
+            <!--<version>5.0.4.RELEASE</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+
+
+        <!--&lt;!&ndash;&lt;!&ndash; https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-remote-driver &ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;<dependency>&ndash;&gt;-->
+            <!--&lt;!&ndash;<groupId>org.seleniumhq.selenium</groupId>&ndash;&gt;-->
+            <!--&lt;!&ndash;<artifactId>selenium-remote-driver</artifactId>&ndash;&gt;-->
+            <!--&lt;!&ndash;<version>3.14.0</version>&ndash;&gt;-->
+        <!--&lt;!&ndash;</dependency>&ndash;&gt;-->
+
+    <!--</dependencies>-->
+
+	<dependencies>
+
+		<dependency>
+			<groupId>net.serenity-bdd</groupId>
+			<artifactId>serenity-spring</artifactId>
+			<version>1.9.29</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<!--<version>2.1.0.RELEASE</version>-->
+			<version>2.0.4.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<!--<version>2.1.0.RELEASE</version>-->
+			<version>2.0.4.RELEASE</version>
+		</dependency>
+		<!--<dependency>-->
+		<!--<groupId>org.springframework</groupId>-->
+		<!--<artifactId>spring-test</artifactId>-->
+		<!--<version>5.0.4.RELEASE</version>-->
+		<!--</dependency>-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-test</artifactId>
+			<!--<version>2.1.0.RELEASE</version>-->
+			<version>2.0.4.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.retry</groupId>
+			<artifactId>spring-retry</artifactId>
+			<version>${spring.retry.version}</version>
+		</dependency>
+		<!--<dependency>-->
+		<!--<groupId>com.google.guava</groupId>-->
+		<!--<artifactId>guava</artifactId>-->
+		<!--<version>17.0</version>-->
+		<!--</dependency>-->
+
+		<dependency>
+			<groupId>net.serenity-bdd</groupId>
+			<artifactId>serenity-core</artifactId>
+			<version>${serenity.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.serenity-bdd</groupId>
+			<artifactId>serenity-junit</artifactId>
+			<version>${serenity.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.serenity-bdd</groupId>
+			<artifactId>serenity-rest-assured</artifactId>
+			<version>${serenity.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.serenity-bdd</groupId>
+			<artifactId>serenity-cucumber</artifactId>
+			<version>1.9.20</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>1.8.6</version>
+		</dependency>
+		<!--<dependency>-->
+		<!--<groupId>junit</groupId>-->
+		<!--<artifactId>junit</artifactId>-->
+		<!--<version>4.12</version>-->
+		<!--</dependency>-->
+		<dependency>
+			<groupId>com.googlecode.lambdaj</groupId>
+			<artifactId>lambdaj</artifactId>
+			<version>2.3.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>1.7.0</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>23.6-jre</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.4.8</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.23</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/net.jodah/failsafe -->
+		<dependency>
+			<groupId>net.jodah</groupId>
+			<artifactId>failsafe</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+	</dependencies>
+
+
     <build>
         <plugins>
                 <!--  Method 1 for parallel run -->
@@ -134,18 +332,27 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 	            <plugin>
 	                <groupId>org.apache.maven.plugins</groupId>
 	                <artifactId>maven-failsafe-plugin</artifactId>
-	                <version>2.20</version>
+	                <version>2.18</version>
 	                <configuration>
 	                   <includes>
 	                        <include>**/cucumber/*.java</include>
 	                    </includes>
-	                    <!-- http://stackoverflow.com/questions/32987998/junit-and-surefire-parallel-tests-forkcount-threadcount -->
-	                    <parallel>classes</parallel>
-	                    <threadCount>1</threadCount>
-	                    <reuseForks>${run.parallel}</reuseForks>
+                        <systemProperties>
+                            <webdriver.driver>chrome</webdriver.driver> <!--8-->
+                            <surefire.rerunFailingTestsCount></surefire.rerunFailingTestsCount>
+                            <surefire.rerunFailingTestsCount>8</surefire.rerunFailingTestsCount>
+                        </systemProperties>
+
+                        <!-- http://stackoverflow.com/questions/32987998/junit-and-surefire-parallel-tests-forkcount-threadcount -->
+	                    <!--<parallel>classes</parallel>-->
+	                    <!--<threadCount>8</threadCount>-->
+	                    <!--<reuseForks>${run.parallel}</reuseForks>-->
+                        <forkCount>0</forkCount>
+                        <!--<reuseForks>true</reuseForks>-->
+
 	                    <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
 	                    <systemPropertyVariables>
-	                        <tags>${tags}</tags>
+	                        <!--<tags>${tags}</tags>-->
 	                    </systemPropertyVariables>
 	                </configuration>
 	                <executions>
@@ -156,8 +363,41 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 	                        </goals>
 	                    </execution>
 	                </executions>
+                    <!--<dependencies>-->
+                        <!--<dependency>-->
+                            <!--<groupId>org.apache.maven.surefire</groupId>-->
+                            <!--<artifactId>surefire-junit47</artifactId>-->
+                            <!--<version>2.18</version>-->
+                        <!--</dependency>-->
+                    <!--</dependencies>-->
 	            </plugin>
-	            
+
+                    <!--<plugin>-->
+                        <!--<artifactId>maven-surefire-plugin</artifactId>-->
+                        <!--<version>2.19.1</version>-->
+                        <!--<dependencies>-->
+                            <!--<dependency>-->
+                                <!--<groupId>org.apache.maven.surefire</groupId>-->
+                                <!--<artifactId>surefire-junit47</artifactId>-->
+                                <!--<version>2.18</version>-->
+                            <!--</dependency>-->
+
+
+                        <!--</dependencies>-->
+                        <!--<configuration>-->
+                            <!--<forkCount>0</forkCount>-->
+                            <!--<debugForkedProcess>true</debugForkedProcess>-->
+                            <!--<rerunFailingTestsCount>8</rerunFailingTestsCount>-->
+                            <!--<includes>-->
+                                <!--<include>**/cucumber/*.java</include>-->
+                            <!--</includes>-->
+                            <!--<properties>-->
+                                    <!--<surefire.rerunFailingTestsCount>10</surefire.rerunFailingTestsCount>-->
+                            <!--</properties>-->
+                        <!--</configuration>-->
+
+                    <!--</plugin>-->
+
 	            <plugin>
 	                <groupId>org.apache.maven.plugins</groupId>
 	                <artifactId>maven-compiler-plugin</artifactId>
@@ -178,6 +418,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 	                    <version>${serenity.version}</version>
 	                  </dependency>
 	                </dependencies>
+
 	                <executions>
 	                    <execution>
 	                        <id>serenity-reports</id>
