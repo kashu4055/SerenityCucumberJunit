@@ -1,11 +1,11 @@
 package com.walmart.cucumber.steps.serenity;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
+import com.walmart.cucumber.pages.WLC_ListPage;
+import com.walmart.cucumber.pages.WLC_LoginPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
-import com.walmart.cucumber.pages.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class WL3CSteps extends ScenarioSteps{
     WLC_LoginPage loginPage;

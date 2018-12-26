@@ -1,18 +1,28 @@
 package com.walmart.cucumber.steps;
 
+import com.walmart.cucumber.steps.serenity.SpringConfiguration;
+import com.walmart.cucumber.steps.serenity.WL3CSteps;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-
 import io.restassured.response.Response;
 import net.thucydides.core.annotations.Steps;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.retry.support.RetryTemplate;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.web.AnnotationConfigWebContextLoader;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import static net.serenitybdd.rest.SerenityRest.when;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.walmart.cucumber.steps.serenity.WL3CSteps;
 
+@WebAppConfiguration
+@ContextConfiguration(loader = AnnotationConfigWebContextLoader.class, classes = SpringConfiguration.class)
 public class ListScenarioSteps {
+
+	@Autowired
+	RetryTemplate retryTemplate;
 
 	@Steps
 	WL3CSteps wlCucumberSteps;

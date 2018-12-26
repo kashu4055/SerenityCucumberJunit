@@ -5,13 +5,18 @@ import com.walmart.cucumber.steps.serenity.SpringConfiguration;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import net.jodah.failsafe.Failsafe;
+import net.jodah.failsafe.RetryPolicy;
 import net.thucydides.core.annotations.Steps;
+import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.retry.annotation.Retryable;
 import org.springframework.retry.support.RetryTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.web.AnnotationConfigWebContextLoader;
 import org.springframework.test.context.web.WebAppConfiguration;
+
+import java.util.concurrent.TimeUnit;
 
 
 @WebAppConfiguration
@@ -93,18 +98,18 @@ public class AppiumCucumberSteps {
 
 
 
-//		RetryPolicy retryPolicy = new RetryPolicy()
-//				.retryOn(Throwable.class)
-//				.withDelay(1000, TimeUnit.MILLISECONDS)
-//				.withMaxRetries(5);
-//
-//
-//		Failsafe.with(retryPolicy).run(() -> {
-//
-//			System.out.println("************************ Retrying ********************");
-//			Assert.assertTrue(--count <=0);
-//
-//		});
+		RetryPolicy retryPolicy = new RetryPolicy()
+				.retryOn(Throwable.class)
+				.withDelay(1000, TimeUnit.MILLISECONDS)
+				.withMaxRetries(5);
+
+
+		Failsafe.with(retryPolicy).run(() -> {
+
+			System.out.println("************************ Retrying ********************");
+			Assert.assertTrue(--count <=0);
+
+		});
 
 
 
@@ -146,15 +151,15 @@ public class AppiumCucumberSteps {
 
 
 
-		try{
-			System.out.println("**************** Hello World *****************");
-
-			String rand = "";
-
-			rand += "Hello" + 4 / 0;
-		}catch(Throwable t){
-			throw t;
-		}
+//		try{
+//			System.out.println("**************** Hello World *****************");
+//
+//			String rand = "";
+//
+//			rand += "Hello" + 4 / 0;
+//		}catch(Throwable t){
+//			throw t;
+//		}
 
 	}
 
