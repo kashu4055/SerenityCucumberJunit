@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 Please refer below to understand Serenity + Cucumber + BDD concepts
 
 http://thucydides.info/docs/articles/an-introduction-to-serenity-bdd-with-cucumber.html
@@ -33,3 +33,6 @@ mvn verify -Drun.parallel=true -Dwebdriver.remote.driver=CHROME -Dwebdriver.remo
 # SerenityCucumberJunit-
 Serenity + Cucumber + Junit + Appium + Spring Integration
 
+
+# SerenityCucumberJunit
+A project that shows integration of Spring with Serenity and shows retry with Spring @Retryable not possible in default Serenity Spring Context
