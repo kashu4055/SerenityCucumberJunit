@@ -17,7 +17,7 @@ import java.lang.reflect.Method;
 
 
 @RunWith(CustomSerenityRunner.class)
-@CucumberOptions(features={"src/test/resources/features/List/create_new_list.feature"},  plugin = {"pretty", "html:target/cucumber-reports", "json:target/cucumber.json","rerun:rerun.txt"})
+@CucumberOptions(features={"src/test/resources/experiment/test.feature"}, glue = {"com/walmart/experiment"}, plugin = {"pretty", "html:target/cucumber-reports", "json:target/cucumber.json","rerun:rerun.txt"})
 @SpringBootTest(classes = SpringDemoApplication.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @ContextConfiguration(classes = SpringConfiguration.class)
 public class WLC_List {

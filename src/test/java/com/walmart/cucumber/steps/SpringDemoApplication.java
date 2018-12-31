@@ -1,6 +1,9 @@
 package com.walmart.cucumber.steps;
 
 import com.walmart.cucumber.steps.serenity.SpringConfiguration;
+import com.walmart.move.nim.springjmsutils.config.amq.AMQConnectionConfig;
+import com.walmart.move.nim.springjmsutils.config.amq.AMQJmsReceiverConfig;
+import com.walmart.move.nim.springjmsutils.config.amq.AMQJmsSenderConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -12,10 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 //@EnableJms
 
-@Import({SpringConfiguration.class})
+@Import({SpringConfiguration.class, AMQJmsSenderConfig.class, AMQJmsReceiverConfig.class, AMQConnectionConfig.class})
 @SpringBootApplication
 @EnableRetry
-@ComponentScan({ "com.walmart.cucumber.steps.serenity"})
+@ComponentScan({ "com.walmart.cucumber.steps.serenity", "com.walmart.move.nim.springjmsutils"})
 @RestController
 public class SpringDemoApplication {
 
